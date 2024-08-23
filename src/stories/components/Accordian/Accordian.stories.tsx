@@ -1,11 +1,30 @@
-import './App.css'
-import { Accordian, AccordianItem } from './stories/components/Accordian/Accordian'
+import type { Meta, StoryObj } from '@storybook/react';
+import {
+    Accordian,
+    AccordianItem,
+} from './Accordian';
 
-function App() {
-  return (
-    <div className="flex flex-col items-center justify-center w-full h-dvh">
-       <div className='w-full'>
-              <Accordian>
+const meta = {
+  title: 'Components/Accordian',
+  component: Accordian,
+  parameters: {
+  },
+  tags: ['autodocs'],
+  argTypes: {
+  },
+  args: {  },
+} satisfies Meta<typeof Accordian>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
+
+export const Demo: Story = {
+    render: (args) => {
+        return (
+            <div className='w-full max-w-full items-center align-middle'>
+             <Accordian>
                 <AccordianItem id='item1' summary='some description'>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
@@ -34,9 +53,8 @@ function App() {
                     </p>
                 </AccordianItem>
               </Accordian>
-        </div> 
-    </div>
-  )
-}
+            </div>            
+        )
+    }
+};
 
-export default App
